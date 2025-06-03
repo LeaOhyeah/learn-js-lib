@@ -1,0 +1,128 @@
+=== Pendahuluan ===
+
+
+
+=== Number ===
+Number merupakan function yang digunakan untuk melakukan konversi ke tipe data number
+Jika data tidak bisa dikonversi ke number, secara otomatis hasilnya adalah NaN
+Number(data)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number 
+
+Number memiliki banyak static properties, seperti :
+Number.MIN_VALUE untuk mendapat number minimal
+Number.MAX_VALUE untuk mendapat number maksimal
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#static_properties 
+
+
+=== String ===
+Tipe data String sudah kita bahas pada materi JavaScript Dasar
+Namun kita belum membahas instance method atau juga instance properties yang terdapat di String
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String 
+
+// method menciptakan data baru, data asli tidak berubah
+String sendiri memiliki banyak sekali instance method dan properties
+Hal ini menjadikan untuk memanipulasi data String sangat mudah di JavaScript, 
+seperti mengubah menjadi lowercase, UPPERCASE, memotong string menjadi array dan lain-lain
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#instance_methods 
+
+
+=== Array ===
+Tipe data Array sudah kita bahas di materi JavaScript Dasar
+Namun kita hanya membahas beberapa instance method yang ada di Array
+Sebenarnya, terdapat banyak sekali Instance Method yang ada di Array, dan kita akan coba bahas beberapa di sini
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array 
+
+Sebelumnya kita biasa menggunakan for in dan for of untuk melakukan iterasi Array, namun Array juga memiliki method yang bernama forEach()
+Method forEach bisa digunakan juga untuk melakukan iterasi data array
+
+Dalam struktur data, terdapat tipe struktur data bernama Queue (Antrian)
+Dimana data masuk akan diposisikan di urutan paling belakang
+Sedangkan data keluar akan diposisikan dari urutan paling depan
+Mirip sekali dengan antrian, atau istilahnya FIFO (first in first out)
+Kita bisa menggunakan Array dengan bantuan function push() untuk menambah data di belakang, 
+dan shift() untuk mengambil dan menghapus data paling depan
+
+Struktur data Stack (Tumpukan) kebalikan dari Queue, dimana aturannya mirip dengan tumpukan kartu
+Saat kita memasukkan data, kita akan memasukkan di urutan paling belakang (atau atas)
+Sedangkan saat kita mengambil data, kita akan mengambil data dari paling belakang (atau atas) terlebih dahulu
+Stack ini sifatnya LIFO (last in first out)
+Untuk menambah diurutan belakang, kita bisa menggunakan function push()
+Dan untuk mengambil dan menghapus paling belakang, kita bisa menggunakan function pop()
+
+Array memiliki banyak function untuk melakukan pencarian :
+
+Array memiliki function untuk melakukan filter data
+
+Array juga memiliki function yang digunakan untuk melakukan transformasi 
+
+function lain
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods 
+
+
+
+
+
+=== Object ===
+
+
+
+=== JSON ===
+
+
+
+=== BigInt ===
+
+
+
+=== Date ===
+
+
+
+=== Math ===
+
+
+
+=== Boolean ===
+
+
+
+=== Map ===
+
+
+
+=== Set ===
+
+
+
+=== Symbol ===
+
+
+
+=== RegExp ===
+
+
+
+=== Proxy ===
+
+
+
+=== Reflect ===
+
+
+
+=== Encode ===
+
+
+
+=== Base64 ===
+
+
+
+=== Eval ===
+
+
+
+=== Materi Selanjutnya ===
+
+
+
