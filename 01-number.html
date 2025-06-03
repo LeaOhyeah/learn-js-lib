@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number</title>
+  </head>
+  <body>
+    <script>
+      const input = "123";
+
+      // constructor
+      const number = Number(input);
+      const salah = Number("salah");
+
+      console.info(typeof input);
+      console.info(typeof number + " " + number);
+      console.info(typeof salah + " " + salah);
+
+      // static property
+      console.info(Number.MIN_VALUE);
+      console.info(Number.MIN_SAFE_INTEGER);
+      console.info(Number.MAX_VALUE);
+      console.info(Number.MAX_SAFE_INTEGER);
+
+      // static method (nempel di class)
+      console.info(Number.isInteger(10));
+      console.info(Number.isNaN(NaN));
+
+      // instance method (nempel di objek)
+      const value = 1234;
+      let result = value.toString();
+      console.info(result + " " + typeof result);
+      result = value.toLocaleString("id-ID");
+      console.info(result + " " + typeof result);
+    </script>
+  </body>
+</html>
