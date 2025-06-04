@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Symbol</title>
+  </head>
+  <body>
+    <script>
+      const firstName = Symbol();
+      const lastname = Symbol("lastnameDesc");
+
+      const person = {
+        // firstName: "Lea",
+        // lastname: "Alyu",
+      };
+      person[firstName] = "Lea";
+      person[lastname] = "Alyu";
+      console.info(person);
+
+      console.info(Symbol("sama") == Symbol("sama"));
+      console.info(firstName == firstName);
+      console.info(Symbol.for("sama") == Symbol.for("sama"));
+      </script>
+  </body>
+</html>
