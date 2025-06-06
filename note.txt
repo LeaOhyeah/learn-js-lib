@@ -59,67 +59,225 @@ function lain
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods 
 
 
-
-
-
 === Object ===
+Tipe data object sudah sering sekali kita bahas di JavaScript Dasar dan JavaScript OOP
+Pada materi ini, kita akan bahas banyak static method yang terdapat pada Object
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object 
 
+Object Freeze & Seal
+Object.freeze(data) mengubah object menjadi object yang tidak bisa diubah atau dihapus attribute nya, juga tidak bisa ditambah
+Object.seal(data) mengubah object menjadi object yang tidak bisa dihapus attribute nya, juga tidak bisa ditambah
+
+Object Assign
+Object.assign(target, source); menggabungkan source ke target, jika sama ditimpa
+
+Object Property Name & Value
+Object.values() digunakan untuk mengambil semua property value
+Object.getPropertyNames() digunakan untuk mengambil semua properti name
 
 
 === JSON ===
+JSON singkatan dari JavaScript Object Notation
+JSON merupakan data String yang bentuknya mirip dengan JavaScript Object
+Saat ini JSON banyak sekali digunakan untuk komunikasi antara Server dan Client
+https://www.json.org/json-en.html 
 
+JavaScript mendukung konversi data dari String json ke Object ataupun sebaliknya
+JSON.stringify(data) digunakan untuk melakukan konversi dari Object ke String
+JSON.parse(data) digunakan untuk melakukan konversi dari String ke Object
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
+array ke json juga sama
 
 
 === BigInt ===
-
-
-
-=== Date ===
-
+BigInt merupakan tipe data Number yang bisa mencakup data angka lebih dari Number.MAX_SAFE_INTEGER
+Untuk kasus number yang lebih dari itu, sangat disarankan menggunakan tipe data BigInt
+Cara penggunaan BigInt sama saja dengan penggunaan Number dan juga operator nya
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
 
 
 === Math ===
+Math merupakan class di JavaScript yang berisikan static property dan method untuk operasi matematika
+Ada banyak sekali static property dan method di Math
+Math hanya bisa digunakan untuk tipe data Number, tidak bisa digunakan untuk tipe data BigInt
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math 
 
+
+=== Date ===
+JavaScript memiliki tipe data untuk representasi waktu dan tanggal, yaitu Date
+Date merupakan representasi milisecond sejak tanggal 1 Januari 1970, atau dikenal dengan Epoch & Unix Timestamp
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date 
+
+Membuat Object Date
+---
+new Date() // waktu saat ini
+new Date(year, month, date)
+new Date(year, month, date?, hour?, minute?, second?, milis?)
+new Date(timestamp) // waktu dari epoch / unique timestamp, cek current milis, atau Date.now() saat ini
+atau data.getTime() milis epoch saat ini
+
+Dalam menggunakan tipe data waktu, biasanya disemua bahasa pemrograman akan mendukung yang namanya epoch & unix timestamp
+Epoch & Unix timestamp merupakan hitungan miliseconds setelah tanggal  1 Januari 1970
+JavaScript pun mendukung pembuatan waktu dalam bentuk epoch dan unix timestamp
+Untuk mendapatkan waktu saat ini dalam epoch & unix timestamp, kita bisa menggunakan Date.now()
+Untuk mengubah dari object date ke epoch & unix timestamp, kita bisa menggunakan function getTime()
+
+Kita juga bisa melakukan parsing membuat date dari string menggunakan method Date.parse(value)
+Format string harus YYYY-MM-DDTHH:mm:ss.sssZ
+Dimana jika kita hanya membuat date berisi tanggal saya, kita cukup gunakan YYYY-MM-DD
+Jika date dengan tanggal dan waktu, gunakan YYYY-MM-DDTHH:mm:ss.sss
+Jika date dengan tanggal, waktu dan timezone, gunakan YYYY-MM-DDTHH:mm:ss.sssZ
+Hasil parsing adalah unix timestamp, bukan object date
 
 
 === Boolean ===
-
+Boolean merupakan wrapper class untuk tipe primitif boolean
+Boolean memiliki method toString() untuk mengkonversi ke String
+Dan memiliki method valueOf() untuk mengkonversi ke tipe boolean primitif
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean 
 
 
 === Map ===
+Map merupakan representasi dari struktur data key-value
+Map mirip dengan tipe data object, hanya saja pada Map, semua method untuk manipulasi data sudah disediakan
+Map mengikuti kontrak iterable, sehingga bisa di iterasi secara default
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map 
 
+Map                                     Object
+Pertama dibuat, tidak memiliki key      Karena memiliki prototype, jadi bisa jadi memiliki default key ketika pertama dibuat
+Key bisa tipe data apapun               Key hanya bisa string atau symbol
+Attribute size untuk jumlah key         Tidak bisa diketahui, harus manual menggunakan iterasi
+default tidak bisa dikonversi ke JSON   Bisa dikonversi ke JSON secara otomatis
+ 
+Method & Property                       Keterangan
+size                                    Panjang Map
+clear()                                 Menghapus semua isi Map
+delete(key)                             Menghapus data Map berdasarkan key
+get(key) : value                        Mendapatkan data Map berdasarkan key
+has(key) : boolean                      Mengecek apakah Map berisi data key
+set(key, value)                         Mengubah data Map dengan key = value
+forEach((key, value) => )               Melakukan iterasi Map
 
 
 === Set ===
+Set merupakan implementasi dari struktur data yang berisikan data-data unique
+Set mirip seperti Array, hanya saja isi datanya selalu unique
+Jika kita menambahkan data yang sama, maka data hanya akan diterima satu saja
+Set mengimplementasikan kontrak iterable, sehingga bisa diiterasi secara default
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set 
 
+size               Panjang Set
+add(value)          Menambah data ke Set
+has(value)          Mengecek apakah Set memiliki value
+delete(value)       Menghapus value dari Set
+forEach(value => )  Melakukan iterasi Set
 
 
 === Symbol ===
-
+Symbol merupakan tipe data yang digaransi akan selalu unique setiap kali kita membuat data symbol
+Symbol kadang banyak digunakan untuk membuat key pada object
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol 
+Kadang agak sulit membuat symbol harus selalu menggunakan variable
+Pembuatan symbol juga bisa menggunakan static method Symbol.for(key)
+Jika kita menggunakan key yang sama, Symbol yang sama akan sekalu dikembalikan
 
 
 === RegExp ===
+RegExp merupakan implementasi dari regular expression di JavaScript
+Regular expression merupakan fitur untuk mencari text dengan pola
+Membuat regular expression di JavaScript bisa dilakukan dengan dua cara, yaitu menggunakan literal notation atau membuat object RegExp
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp 
+membuat RegExp
+- literal notation  
+    let re = /a/;
+- objek
+    new RegExp('[a]')
+    new RegExp(/[a]/)
 
+instance method
+exec(value) : result
+Eksekusi regex, jika menemukan data sesuai pola, maka kembalikan result nya, jika tidak maka null
+test(value) : boolean
+Eksekusi regex, jika menemukan data sesuai pola, maka return true, jika tidak maka false
+
+RegExp di string
+match(regex) : Array
+Mencari semua data yang sesuai dengan regex
+search(regex) : index
+Mencari index data yang sesuai dengan regex
+replace(regex, value)
+Mengubah data dengan value yang sesuai regex
+replaceAll(regex, value)
+Mengubah semua data dengan value yang sesuai regex
+split(regex) : Array
+Memotong string dengan regex
 
 
 === Proxy ===
+Proxy merupakan fitur yang bisa digunakan sebagai wakil sebuah data
+Dengan menggunakan proxy, semua interaksi ke data akan selalu melalui Proxy terlebih dahulu
+Dengan ini, kita bisa melakukan apapun sebelum interaksi dilakukan ke data yang dituju
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy 
 
+Pembuatan Proxy perlu menggunakan handler, dimana dalam handler, kita bisa membuat function yang dinamakan interceptor yang digunakan ketika mengambil data atau mengubah data ke target
+Untuk membuat Proxy, kita bisa menggunakan new Proxy(target, handler)
+
+Saat kita mengubah data proxy, secara otomatis data akan dikirim ke target melalui handler dengan memanggil function set(target, property, value)
+Saat kita mengambil data proxy, secara otomatis data akan diambil dari target melalui handler dengan memanggil function get(target, property)
+Artinya, jika kita ingin melakukan sesuatu sebelum dan setelah nya, bisa kita lakukan di handler
 
 
 === Reflect ===
-
+membreakdown struktur objek / refelction
+Reflect merupakan class yang digunakan untuk mengeksekusi JavaScript function
+Reflect tidak memiliki constructor, dan cara penggunaan Reflect tidak dengan membuat object dengan new Reflect
+Penggunaan Reflect adalah menggunakan banyak sekali static methodnya
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect 
 
 
 === Encode ===
+Saat kita menulis URL, kadang kita ingin menambahkan informasi tambahan seperti query parameter misalnya
+URL sendiri sudah memiliki standard encoding penulisan URL
+Standard encoding ini dilakukan agar penulisan URL aman ketika diterima oleh server
+Aman disini dalam artian informasi URL tidak berubah
+Contoh paling sederhana, misal, walaupun kita bisa mengirim spasi dalam url, 
+tapi disarankan untuk di encode agar nilai spasi tidak benar-benar terlihat seperti spasi pada URL nya
 
+Misal ada query parameter dengan nama data, lalu kita ingin mengirimkan nilai kesana
+Misal nilainya adalah &eko=eko&, alhasil URL nya akan seperti berikut
+http://contoh.com?data=&eko=eko&
+URL diatas terlihat tidak ada masalah, tapi sebenarnya ketika diterima oleh server, 
+parameter data bernilai kosong, kenapa? karena & dianggap sebagai pemisah antar parameter
+Artinya tanda seperti & dan lain-lain perlu di encode, agar tidak terjadi kesalahan data yang kita kirim
+
+encodeURI(value)
+Melakukan encode value, namun karakter yang dipesan di URI tidak akan diubah ;,/?:@&=+$#
+encodeURIComponent(value)
+Melakukan encode value semua karakter
+decodeURI(encoded)
+Melakukan decode value hasil encodeURI()
+decodeURIComponent(encoded)
+Melakukan decode value hasil encodeURIComponent()
 
 
 === Base64 ===
-
+Base64 merupakan binary to text encoding, representasi binary data dalam format string
+Base64 merupakan format text data yang aman untuk dikirimkan di web
+Base64 merupakan encoding yang biasanya digunakan ketika perlu mengirim data dari client ke server
+Karena encoding Base64 merupakan text, oleh karena itu sangat aman digunakan pada query param URL atau text body dalam form
+https://developer.mozilla.org/en-US/docs/Glossary/Base64 
+btoa(value)
+Encode ke base64 dari value
+atob(encoded)
+Decode dari base64 ke value
 
 
 === Eval ===
-
+Eval merupakan function yang digunakan untuk mengeksekusi kode JavaScript dari String
+Fitur ini sangat menarik, namun perlu hati-hati ketika menggunakannya
+Jika sampai salah penggunaan, maka bisa jadi kita malah mengeksekusi kode program 
+yang bisa menyebabkan masalah keamanan di website kita
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
 
 
 === Materi Selanjutnya ===
